@@ -1,6 +1,30 @@
 // Find all our documentation at https://docs.near.org
 import { NearBindgen, near, call, view } from 'near-sdk-js';
 
+type Article = {
+  author: string;
+  title: string;
+  createdAt: string; // Date and time in ISO 8601 format
+  content: string;
+};
+
+@NearBindgen({})
+class ArticleContract {
+  articles: Article[] = [];
+
+  @view({}) // This method is read-only and can be called for free
+  get_articles(): Article[] {
+    return this.articles;
+  }
+
+  @call({}) // This method changes the state, for which it costs gas
+  add_article({ author, title, createdAt, content }: Article): void {
+    const newArticle: Article = { author, title, createdAt, content };
+    near.log(`Adding article: ${title} by ${author}`);
+    this.articles.push(newArticle);
+  }
+}
+
 @NearBindgen({})
 class HelloNear {
   greeting: string = 'Hello';
