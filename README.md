@@ -18,7 +18,7 @@
   </p>
 </div>
 
-## About the Project
+## About the Project 📚
 
 `Decentralised Journalists` ensures that the identities of contributors remain protected while maintaining the integrity and immutability of their submissions. This project aims to foster a safe and open environment for sharing important information and stories without fear of retribution or censorship.
 
@@ -26,7 +26,7 @@
 
 The inspiration behind `Decentralized Journalists` stems from the pressing need for unbiased and secure platforms where diverse perspectives on complex issues can be shared freely. In regions of prolonged conflict, where both sides have vital stories and viewpoints, traditional media can sometimes struggle to provide a balanced narrative.
 
-## Technologies Used
+## Technologies Used 💻
 
 ### Near Blockchain
 
@@ -39,7 +39,7 @@ Neurelo enabled us to rapidly deploy a database and API endpoints, allowing us t
 - [Neurelo](https://www.neurelo.com/)
 - [PostgreSQL](https://www.postgresql.org/) 
 
-## Our Team
+## Our Team 💛
 
 [Hamidreza Khoramrokh](https://www.linkedin.com/in/hamidrezakhoramrokh/) - Project Manager
 
