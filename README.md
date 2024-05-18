@@ -7,7 +7,7 @@
   <h3 align="center">Decentralised Journalists</h3>
 
   <p align="center">
-   Decentralised Journalism is a necessity in today's world where information is power, one that web 3.0 makes possible. 
+   Decentralised Journalism is a necessity in today's world, one that web 3.0 makes possible. 
     <br />
     <a href="https://github.com/DecentralisedJournalists-Team/decentralised-journalists/"><strong>Visit the Website »</strong></a>
     <br />
