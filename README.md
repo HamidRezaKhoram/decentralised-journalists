@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/DecentralisedJournalists-Team/decentralised-journalists/">
-    <img src=https://cdn.discordapp.com/attachments/1240433316251832321/1241450683559837696/dj.webp?ex=664a3e8b&is=6648ed0b&hm=e5de693709a84661cd42dec30ff2f9c4d437475360955fc85f305c38453326ae&" alt="Logo" width="100" height="100">
+    <img src=https://cdn.discordapp.com/attachments/1240433316251832321/1241479528094761071/dj-modified.png" alt="Logo" width="100" height="100">
   </a>
   <h3 align="center">Decentralised Journalists</h3>
 
