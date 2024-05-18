@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "build": "near-sdk-js build src/contract.ts build/hello_near.wasm",
-    "test": "$npm_execpath run build && ava -- ./build/hello_near.wasm"
+    "test": "$npm_execpath run build && ava -- ./build/hello_near.wasm",
+    "deploy": "near deploy planetoftheapes.testnet ./build/hello_near.wasm",
+    "build-deploy": "npm run build && npm run deploy"
   },
   "dependencies": {
     "near-cli": "^4.0.8",
