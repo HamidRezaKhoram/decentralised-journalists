@@ -1,9 +1,6 @@
 'use client';
 import { useState, useEffect, useContext } from 'react';
 
-import styles from '@/app/app.module.css';
-import { Cards } from '@/components/cards';
-
 import { NearContext } from '@/context';
 import { ArticleContract } from '@/config';
 
@@ -38,15 +35,15 @@ export default function HelloNear() {
   };
 
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
+    <main className={`main`}>
+      <div className={`description`}>
         <p>
           Interacting with the contract: &nbsp;
-          <code className={styles.code}>{CONTRACT}</code>
+          <code className={`code`}>{CONTRACT}</code>
         </p>
       </div>
 
-      <div className={styles.center}>
+      <div className={`center`}>
         <h1 className="w-100"> The contract says: <code>{greeting}</code> </h1>
         <div className="input-group" hidden={!loggedIn}>
           <input type="text" className="form-control w-20" placeholder="Store a new greeting" onChange={t => setNewGreeting(t.target.value)} />
@@ -60,9 +57,6 @@ export default function HelloNear() {
         <div className='w-100 text-end align-text-center' hidden={loggedIn}>
           <p className='m-0'> Please login to change the greeting </p>
         </div>
-      </div>
-      <div className={styles.grid}>
-        <Cards />
       </div>
     </main>
   );

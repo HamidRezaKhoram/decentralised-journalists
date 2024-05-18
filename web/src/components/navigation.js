@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { useEffect, useState, useContext } from 'react';
 
 import { NearContext } from '@/context';
-import Logo from '/public/logo.png';
 
 export const Navigation = () => {
   const { signedAccountId, wallet } = useContext(NearContext);
@@ -15,7 +14,7 @@ export const Navigation = () => {
 
     if (signedAccountId) {
       setAction(() => wallet.signOut);
-      setLabel(`Logout ${signedAccountId}`);
+      setLabel(`Logout`);
     } else {
       setAction(() => wallet.signIn);
       setLabel('Login');
@@ -26,10 +25,10 @@ export const Navigation = () => {
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
         <Link href="/" passHref legacyBehavior>
-          <Image priority src={Logo} alt="Decentralised Journalists Logo" width="600" height="600" className="w-[6%] d-inline-block align-text-top" />
+          <Image priority src={`/logo.png`} alt="Decentralised Journalists Logo" width="600" height="600" className="w-[13%] md:w-[6%] d-inline-block align-text-top" />
         </Link>
         <div className='navbar-nav pt-1'>
-          <button className="btn btn-secondary" onClick={action} > {label} </button>
+          <button className="btn btn-secondary" onClick={action} > {label} <p className={`hidden md:inline-block`}>{signedAccountId}</p> </button>
         </div>
       </div>
     </nav>
