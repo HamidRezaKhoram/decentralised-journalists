@@ -19,5 +19,5 @@ const contractPerNetwork = {
 // };
 
 export const NetworkId = 'testnet';
-export const HelloNearContract = contractPerNetwork[NetworkId];
+export const ArticleContract = contractPerNetwork[NetworkId];
 // export const Components = componentsPerNetwork[NetworkId];

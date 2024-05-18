@@ -5,10 +5,10 @@ import styles from '@/app/app.module.css';
 import { Cards } from '@/components/cards';
 
 import { NearContext } from '@/context';
-import { HelloNearContract } from '@/config';
+import { ArticleContract } from '@/config';
 
 // Contract that the app will interact with
-const CONTRACT = HelloNearContract;
+const CONTRACT = ArticleContract;
 
 export default function HelloNear() {
   const { signedAccountId, wallet } = useContext(NearContext);

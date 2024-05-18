@@ -21,7 +21,7 @@ class ArticleContract {
   add_article({ author, title, createdAt, content }: Article): void {
     const newArticle: Article = { author, title, createdAt, content };
     near.log(`Adding article: ${title} by ${author}`);
-    this.articles.push(newArticle);
+    this.articles.unshift(newArticle);
   }
 }
 

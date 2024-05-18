@@ -5,11 +5,11 @@ import { useEffect, useState } from 'react';
 import '@/app/globals.css';
 import { NearContext } from '@/context';
 import { Navigation } from '@/components/navigation';
-import { NetworkId, HelloNearContract } from '@/config';
+import { NetworkId, ArticleContract } from '@/config';
 
 import { Wallet } from '@/wallets/near';
 
-const wallet = new Wallet({ networkId: NetworkId, createAccessKeyFor: HelloNearContract });
+const wallet = new Wallet({ networkId: NetworkId, createAccessKeyFor: ArticleContract });
 
 // Layout Component
 export default function RootLayout({ children }) {
