@@ -2,6 +2,7 @@
 import { NearBindgen, near, call, view } from 'near-sdk-js';
 
 type Article = {
+  id: string;
   author: string;
   title: string;
   createdAt: string; // Date and time in ISO 8601 format
@@ -18,10 +19,10 @@ class ArticleContract {
   }
 
   @call({}) // This method changes the state, for which it costs gas
-  add_article({ author, title, createdAt, content }: Article): void {
-    const newArticle: Article = { author, title, createdAt, content };
+  add_article({ id, author, title, createdAt, content }: Article): void {
+    const newArticle: Article = { id, author, title, createdAt, content };
     near.log(`Adding article: ${title} by ${author}`);
-    this.articles.push(newArticle);
+    this.articles.unshift(newArticle);
   }
 }
 

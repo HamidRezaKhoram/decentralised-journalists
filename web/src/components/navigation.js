@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { useEffect, useState, useContext } from 'react';
 
 import { NearContext } from '@/context';
-import NearLogo from '/public/near-logo.svg';
 
 export const Navigation = () => {
   const { signedAccountId, wallet } = useContext(NearContext);
@@ -15,7 +14,7 @@ export const Navigation = () => {
 
     if (signedAccountId) {
       setAction(() => wallet.signOut);
-      setLabel(`Logout ${signedAccountId}`);
+      setLabel(`Logout`);
     } else {
       setAction(() => wallet.signIn);
       setLabel('Login');
@@ -24,12 +23,13 @@ export const Navigation = () => {
 
   return (
     <nav className="navbar navbar-expand-lg">
-      <div className="container-fluid">
-        <Link href="/" passHref legacyBehavior>
-          <Image priority src={NearLogo} alt="NEAR" width="30" height="24" className="d-inline-block align-text-top" />
+      <div className="flex flex-row justify-between w-full">
+        <Link href="/" className='hover:cursor-pointer w-full mt-2.5'>
+          <Image priority src={`/logo.png`} alt="Decentralised Journalists Logo" width="600" height="600" className="w-[22%] md:w-[6%] d-inline-block align-text-top" />
         </Link>
-        <div className='navbar-nav pt-1'>
-          <button className="btn btn-secondary" onClick={action} > {label} </button>
+
+        <div className='navbar-nav p-2'>
+          <button className="bg-gray-950 rounded-md text-white h-1/2 py-4 my-auto flex justify-center items-center px-4" onClick={action} > {label} <p className={`${signedAccountId ? '' : `hidden md:hidden`} hidden md:inline-block`}>&nbsp;({signedAccountId})</p> </button>
         </div>
       </div>
     </nav>
