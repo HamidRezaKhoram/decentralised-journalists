@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import '@/app/globals.css';
 import { NearContext } from '@/context';
 import { Navigation } from '@/components/navigation';
+import Footer from '@/components/footer';
 import { NetworkId, ArticleContract } from '@/config';
 import { Open_Sans } from 'next/font/google';
 
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         <NearContext.Provider value={{ wallet, signedAccountId }}>
           <Navigation />
           {children}
+          <Footer />
         </NearContext.Provider>
       </body>
     </html>
