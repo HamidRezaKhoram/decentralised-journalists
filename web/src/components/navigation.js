@@ -23,12 +23,13 @@ export const Navigation = () => {
 
   return (
     <nav className="navbar navbar-expand-lg">
-      <div className="container-fluid">
-        <Link href="/" passHref legacyBehavior>
-          <Image priority src={`/logo.png`} alt="Decentralised Journalists Logo" width="600" height="600" className="w-[13%] md:w-[6%] d-inline-block align-text-top" />
+      <div className="flex flex-row justify-between w-full">
+        <Link href="/" className='hover:cursor-pointer w-full mt-2.5'>
+          <Image priority src={`/logo.png`} alt="Decentralised Journalists Logo" width="600" height="600" className="w-[22%] md:w-[6%] d-inline-block align-text-top" />
         </Link>
-        <div className='navbar-nav pt-1'>
-          <button className="bg-gray-950 rounded-md text-white p-2" onClick={action} > {label} <p className={`hidden md:inline-block`}>({signedAccountId})</p> </button>
+
+        <div className='navbar-nav p-2'>
+          <button className="bg-gray-950 rounded-md text-white h-1/2 py-4 my-auto flex justify-center items-center px-4" onClick={action} > {label} <p className={`${signedAccountId ? '' : `hidden md:hidden`} hidden md:inline-block`}>&nbsp;({signedAccountId})</p> </button>
         </div>
       </div>
     </nav>
