@@ -43,7 +43,7 @@ Neurelo enabled us to rapidly deploy a database and API endpoints, allowing us t
 
 [Hamidreza Khoramrokh](https://www.linkedin.com/in/hamidrezakhoramrokh/) - Project Manager
 
-[Keitan Nunes](https://www.linkedin.com/in/keitannunes/) - AI Engineer / Backend Developer
+[Keitan Nunes](https://www.linkedin.com/in/keitannunes/) - AI Engineer / SQL Developer
 
 [Mo Nakouzi](https://www.linkedin.com/in/mnakouzi/) - Frontend / Blockchain Engineer
 
