@@ -28,7 +28,7 @@ export const Navigation = () => {
           <Image priority src={`/logo.png`} alt="Decentralised Journalists Logo" width="600" height="600" className="w-[13%] md:w-[6%] d-inline-block align-text-top" />
         </Link>
         <div className='navbar-nav pt-1'>
-          <button className="btn btn-secondary" onClick={action} > {label} <p className={`hidden md:inline-block`}>{signedAccountId}</p> </button>
+          <button className="bg-gray-950 rounded-md text-white p-2" onClick={action} > {label} <p className={`hidden md:inline-block`}>({signedAccountId})</p> </button>
         </div>
       </div>
     </nav>
