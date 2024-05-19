@@ -3,9 +3,9 @@ import { FaPlus } from "react-icons/fa6";
 export default function NewArticle() {
     return (
         <button 
-            className="bg-gray-950 text-white w-8 h-8 md:w-12 md:h-12 rounded-sm md:rounded-md fixed bottom-14 right-2 md:bottom-16 md:right-4 flex justify-center items-center ease-in-out duration-300 hover:bg-transparent hover:text-gray-950 hover:border border-gray-950 hover:scale-105"
+            className="bg-gray-950 text-white w-8 h-8 md:w-12 md:h-12 rounded-sm md:rounded-md fixed bottom-14 right-2 md:bottom-16 md:right-4 flex justify-center items-center ease-in-out duration-300 hover:bg-transparent hover:border border-gray-950 hover:scale-105"
         >
-            <FaPlus className="text-xl md:text-3xl hover:text-gray-950" />
+            <FaPlus className="w-full h-full p-1 text-xl md:text-3xl hover:text-gray-950" />
         </button>
     );
 }

@@ -12,7 +12,7 @@ export default function Hero() {
     return (
         <section
             id='home'
-            className={`main pt-5 pb-4 min-h-[75vh] md:min-h-[79vh] xl:min-h-[75vh] center flex-col items-center justify-center h-screen transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            className={`main pt-5 pb-4 min-h-[76vh] md:min-h-[79vh] xl:min-h-[75vh] center flex-col items-center justify-center h-screen transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
         >
             <h1 className='text-3xl md:text-4xl lg:text-5xl xl:text-6xl'>Decentralised Journalists</h1>

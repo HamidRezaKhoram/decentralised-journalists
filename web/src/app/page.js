@@ -1,15 +1,20 @@
 "use client";
 import { IoIosSearch } from 'react-icons/io';
 import { ImSpinner9 } from 'react-icons/im';
+import { RxCross1 } from 'react-icons/rx';
 
 import { useEffect, useState } from 'react';
 import NewArticle from '@/components/newArticle';
 import Hero from '@/components/hero';
+import ArticlePreview from '@/components/articlePreview';
+import CustomHr from '@/components/customHr';
 
-function toTitleCase(str) {
-  return str.toLowerCase().replace(/(?:^|\s)\w/g, function (match) {
-    return match.toUpperCase();
-  });
+function getIdFromObject(obj) {
+  let res = [];
+  for (let i = 0; i < obj.length; i++) {
+    res.push(obj[i].id);
+  }
+  return res;
 }
 
 export default function Home() {
@@ -17,6 +22,9 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [query, setQuery] = useState('');
   const [searchError, setSearchError] = useState(false);
+
+  const [searched, setSearched] = useState(false);
+  const [filteredArticles, setFilteredArticles] = useState([]);
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -47,7 +55,7 @@ export default function Home() {
     if (trimmedQuery.length < 3) {
       setSearchError(true);
       setIsLoading(false);
-      setTimeout(() => {setSearchError(false)}, 5000);
+      setTimeout(() => { setSearchError(false) }, 5000);
       return;
     }
 
@@ -59,10 +67,12 @@ export default function Home() {
         }
       });
       const searchResults = await response.json();
-      const arrResults = searchResults.data;
-      console.log(arrResults);
+      const idArr = getIdFromObject(searchResults.data);
+
+      setFilteredArticles(articles.filter(article => idArr.includes(article.id)));
+      setSearched(true);
     }
-    catch {
+    catch (error) {
       console.log(`Error fetching search results: ${error}`);
     }
 
@@ -99,26 +109,50 @@ export default function Home() {
         </section>
 
         <section>
-          <hr className='mt-4 bg-gray-300 w-3/4 md:w-2/3 mx-auto' />
+          {searched &&
+            <div className='w-full flex items-center justify-center'>
+              <button
+                className='flex flex-row justify-center items-center bg-gray-950 text-white rounded-md shadow-sm px-3 py-2 hover:scale-105'
+                onClick={() => {
+                  setSearched(false);
+                  setQuery('');
+                }}
+              >
+                <p>
+                  Clear Search Results
+                </p>
+                <RxCross1 className='w-5 h-5 ml-1' />
+              </button>
+            </div>
+
+          }
           {
-            articles.map((article, index) => {
-              return (
-                <div
-                  key={index}
-                  className='flex flex-col w-3/4 md:w-2/3 mx-auto border-b-2 border-gray-300 px-4 py-2 justify-center ease-in-out duration-300 hover:bg-gray-950 hover:text-white hover:scale-105 hover:rounded-sm'
-                >
-                  <div className='flex flex-row justify-between items-center'>
-                    <h4 className='my-1 text-2xl lg:text-4xl font-semibold py-2 pb-2'>{toTitleCase(article.title)}</h4>
-                    <p className='my-1 text-sm md:text-lg lg:text-xl pb-2'>Author: {article.author_id}</p>
-                  </div>
-                  <p className='my-1 text-xs lg:text-sm'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit ultricies tortor,
-                    vel egestas mauris fringilla id. Fusce at elit ex. Vestibulum non eros fermentum, sagittis
-                    dolor a, pharetra lacus...
-                  </p>
-                </div>
-              );
-            })
+            searched &&
+            <>
+              <h4 className='my-1 text-2xl lg:text-4xl font-semibold pb-2 pt-8 flex justify-center'>Search Results</h4>
+              <CustomHr />
+              {filteredArticles.map((article, index) => {
+                return (
+                  <ArticlePreview key={index} article={article} />
+                );
+              })}
+            </>
+          }
+          {
+            searched && filteredArticles.length === 0 &&
+            <h4 className='my-1 text-2xl lg:text-4xl font-semibold pb-2 pt-8 flex justify-center'>No results found . . .</h4>
+          }
+          {
+            !searched &&
+            <>
+              <h4 className='my-1 text-2xl lg:text-4xl font-semibold pb-2 pt-8 flex justify-center'>All Articles</h4>
+              <CustomHr />
+              {articles.map((article, index) => {
+                return (
+                  <ArticlePreview key={index} article={article} />
+                );
+              })}
+            </>
           }
         </section>
       </main >
